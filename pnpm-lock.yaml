@@ -8,16 +8,13 @@ importers:
     devDependencies:
       '@changesets/cli': 2.22.0
 
-  apps/some-app:
+  packages/lc-ee-cli:
     specifiers:
-      some-config: workspace:^
-      some-lib: workspace:*
-    dependencies:
-      some-lib: link:../../libraries/some-lib
+      some-config: workspace:*
     devDependencies:
       some-config: link:../../tools/some-config
 
-  libraries/some-lib:
+  packages/lc-ee-core:
     specifiers:
       some-config: workspace:*
     devDependencies:
