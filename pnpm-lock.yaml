@@ -10,7 +10,7 @@ importers:
 
   apps/some-app:
     specifiers:
-      some-config: workspace:*
+      some-config: workspace:^
       some-lib: workspace:*
     dependencies:
       some-lib: link:../../libraries/some-lib

@@ -12,8 +12,8 @@
   },
   "scripts": {
     "build": "pnpm --recursive run build",
-    "libraries:version": "changeset version && pnpm install --offline --frozen-lockfile",
-    "libraries:publish": "git pull --tags --force && changeset tag && pnpm publish --recursive",
+    "packages:version": "changeset version && pnpm install --offline --frozen-lockfile",
+    "packages:publish": "git pull --tags --force && changeset tag && pnpm publish --recursive",
     "lint": "pnpm --recursive run lint",
     "test": "pnpm --recursive run test",
     "preinstall": "npx only-allow pnpm"

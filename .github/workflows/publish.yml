@@ -1,9 +1,9 @@
-name: Libraries
+name: packages
 
 on:
   push:
     paths:
-      - 'libraries/**'
+      - 'packages/**'
       - 'package.json'
       - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
@@ -55,15 +55,15 @@ jobs:
       - name: 'Install dependencies'
         run: pnpm --frozen-lockfile install
 
-      - name: 'Build'
-        run: pnpm run build --filter ./libraries/*
+      # - name: 'Build'
+      #   run: pnpm run build --filter ./packages/*
 
       # Lint and test (if not on main)
-      - name: 'Lint and test'
-        if: ${{ !endsWith(github.ref, '/main') }}
-        run: |
-          pnpm run lint --filter ./libraries/* \
-            && pnpm run test --filter ./libraries/*
+      # - name: 'Lint and test'
+      #   if: ${{ !endsWith(github.ref, '/main') }}
+      #   run: |
+      #     pnpm run lint --filter ./packages/* \
+      #       && pnpm run test --filter ./packages/*
 
       # Version and Publish (if main)
       - name: 'Version and Publish'
@@ -71,11 +71,11 @@ jobs:
         uses: changesets/action@v1
         with:
           # Creates/updates release PR if pending changesets
-          version: pnpm libraries:version
-          commit: '/libraries/* release'
-          title: '`/libraries/*` release'
+          version: pnpm packages:version
+          commit: '/packages/* release'
+          title: '`/packages/*` release'
           # Publish to npm if release PR merged to main
-          publish: pnpm libraries:publish
+          publish: pnpm packages:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
