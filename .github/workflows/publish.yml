@@ -53,7 +53,7 @@ jobs:
         run: pnpm config set store-dir $PNPM_CACHE_FOLDER
 
       - name: 'Install dependencies'
-        run: pnpm --frozen-lockfile install
+        run: pnpm install --no-frozen-lockfile
 
       # - name: 'Build'
       #   run: pnpm run build --filter ./packages/*
