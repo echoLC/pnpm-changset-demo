@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "pnpm --recursive run build",
-    "packages:version": "changeset version && pnpm install --offline --frozen-lockfile",
+    "packages:version": "changeset version && pnpm install --offline --no-frozen-lockfile",
     "packages:publish": "git pull --tags --force && changeset tag && pnpm publish --recursive",
     "lint": "pnpm --recursive run lint",
     "test": "pnpm --recursive run test",
