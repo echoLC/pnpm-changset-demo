@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 15
     name: 'lint and test, or publish'
     # Must be self-hosted to access writeable NPM_TOKEN for publish
-    runs-on: [self-hosted, linux, x64]
+    runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v2
